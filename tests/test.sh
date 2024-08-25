@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
 
-# shellcheck source=/dev/null
-source /etc/profile
+import tests/hoge.sh
 echo "Hello World!"

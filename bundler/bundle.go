@@ -3,8 +3,9 @@ package bundler
 import (
 	"fmt"
 	"io"
+	"os"
 
-	"github.com/samber/lo"
+	"mvdan.cc/sh/v3/syntax"
 )
 
 func Bundle(input io.Reader, output io.Writer, opts ...Option) (any, error) {
@@ -13,10 +14,18 @@ func Bundle(input io.Reader, output io.Writer, opts ...Option) (any, error) {
 		opt(&o)
 	}
 
-	srcs := getImportedFilePaths(input)
-	if srcs != nil {
-		lo.ForEach(*srcs, func(src string, index int) {
-			fmt.Println(src)
+	srcs := getImportedFilePathsFromReader(input)
+	for _, src := range *srcs {
+		srcFile, err := os.Open(src)
+		if err != nil {
+			return nil, err
+		}
+		defer srcFile.Close()
+
+		walkReader(srcFile, func(s *syntax.Stmt) bool {
+			funcs := getDefinedFuncList(s)
+			fmt.Println(funcs)
+			return true
 		})
 	}
 

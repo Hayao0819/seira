@@ -1,0 +1,77 @@
+{
+  "Name": "",
+  "Stmts": [
+    {
+      "Comments": null,
+      "Cmd": {
+        "Assigns": null,
+        "Args": [
+          {
+            "Parts": [
+              {
+                "ValuePos": {},
+                "ValueEnd": {},
+                "Value": "source"
+              }
+            ]
+          },
+          {
+            "Parts": [
+              {
+                "ValuePos": {},
+                "ValueEnd": {},
+                "Value": "/etc/profile"
+              }
+            ]
+          }
+        ]
+      },
+      "Position": {},
+      "Semicolon": {},
+      "Negated": false,
+      "Background": false,
+      "Coprocess": false,
+      "Redirs": null
+    },
+    {
+      "Comments": null,
+      "Cmd": {
+        "Assigns": null,
+        "Args": [
+          {
+            "Parts": [
+              {
+                "ValuePos": {},
+                "ValueEnd": {},
+                "Value": "echo"
+              }
+            ]
+          },
+          {
+            "Parts": [
+              {
+                "Left": {},
+                "Right": {},
+                "Dollar": false,
+                "Parts": [
+                  {
+                    "ValuePos": {},
+                    "ValueEnd": {},
+                    "Value": "Hello World!"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "Position": {},
+      "Semicolon": {},
+      "Negated": false,
+      "Background": false,
+      "Coprocess": false,
+      "Redirs": null
+    }
+  ],
+  "Last": null
+}
