@@ -33,7 +33,6 @@ func withSbb(_ *cobra.Command, input string, output string, minify bool) error {
 }
 
 func withInternal(_ *cobra.Command, input string, output string, _ bool) error {
-
 	var (
 		ifile *os.File
 		ofile *os.File
@@ -53,7 +52,7 @@ func withInternal(_ *cobra.Command, input string, output string, _ bool) error {
 		}
 	}
 
-	_, err = bundler.Bundle(ifile, ofile, bundler.Base(path.Dir(input)))
+	_, err = bundler.Bundle(ifile, input, ofile, bundler.Base(path.Dir(input)))
 	return err
 }
 

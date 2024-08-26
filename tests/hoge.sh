@@ -3,3 +3,9 @@
 sayHello() {
     echo "Hello World!"
 }
+
+nestedFunction() {
+    hoge() {
+        echo "Hoge"
+    }
+}

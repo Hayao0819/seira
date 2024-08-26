@@ -1,30 +1,72 @@
 {
-  "Name": "",
+  "Name": "./tests/hoge.sh",
   "Stmts": [
     {
       "Comments": null,
       "Cmd": {
-        "Assigns": null,
-        "Args": [
-          {
-            "Parts": [
+        "Position": {},
+        "RsrvWord": false,
+        "Parens": true,
+        "Name": {
+          "ValuePos": {},
+          "ValueEnd": {},
+          "Value": "sayHello"
+        },
+        "Body": {
+          "Comments": null,
+          "Cmd": {
+            "Lbrace": {},
+            "Rbrace": {},
+            "Stmts": [
               {
-                "ValuePos": {},
-                "ValueEnd": {},
-                "Value": "source"
+                "Comments": null,
+                "Cmd": {
+                  "Assigns": null,
+                  "Args": [
+                    {
+                      "Parts": [
+                        {
+                          "ValuePos": {},
+                          "ValueEnd": {},
+                          "Value": "echo"
+                        }
+                      ]
+                    },
+                    {
+                      "Parts": [
+                        {
+                          "Left": {},
+                          "Right": {},
+                          "Dollar": false,
+                          "Parts": [
+                            {
+                              "ValuePos": {},
+                              "ValueEnd": {},
+                              "Value": "Hello World!"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "Position": {},
+                "Semicolon": {},
+                "Negated": false,
+                "Background": false,
+                "Coprocess": false,
+                "Redirs": null
               }
-            ]
+            ],
+            "Last": null
           },
-          {
-            "Parts": [
-              {
-                "ValuePos": {},
-                "ValueEnd": {},
-                "Value": "/etc/profile"
-              }
-            ]
-          }
-        ]
+          "Position": {},
+          "Semicolon": {},
+          "Negated": false,
+          "Background": false,
+          "Coprocess": false,
+          "Redirs": null
+        }
       },
       "Position": {},
       "Semicolon": {},
@@ -36,34 +78,104 @@
     {
       "Comments": null,
       "Cmd": {
-        "Assigns": null,
-        "Args": [
-          {
-            "Parts": [
+        "Position": {},
+        "RsrvWord": false,
+        "Parens": true,
+        "Name": {
+          "ValuePos": {},
+          "ValueEnd": {},
+          "Value": "nestedFunction"
+        },
+        "Body": {
+          "Comments": null,
+          "Cmd": {
+            "Lbrace": {},
+            "Rbrace": {},
+            "Stmts": [
               {
-                "ValuePos": {},
-                "ValueEnd": {},
-                "Value": "echo"
-              }
-            ]
-          },
-          {
-            "Parts": [
-              {
-                "Left": {},
-                "Right": {},
-                "Dollar": false,
-                "Parts": [
-                  {
+                "Comments": null,
+                "Cmd": {
+                  "Position": {},
+                  "RsrvWord": false,
+                  "Parens": true,
+                  "Name": {
                     "ValuePos": {},
                     "ValueEnd": {},
-                    "Value": "Hello World!"
+                    "Value": "hoge"
+                  },
+                  "Body": {
+                    "Comments": null,
+                    "Cmd": {
+                      "Lbrace": {},
+                      "Rbrace": {},
+                      "Stmts": [
+                        {
+                          "Comments": null,
+                          "Cmd": {
+                            "Assigns": null,
+                            "Args": [
+                              {
+                                "Parts": [
+                                  {
+                                    "ValuePos": {},
+                                    "ValueEnd": {},
+                                    "Value": "echo"
+                                  }
+                                ]
+                              },
+                              {
+                                "Parts": [
+                                  {
+                                    "Left": {},
+                                    "Right": {},
+                                    "Dollar": false,
+                                    "Parts": [
+                                      {
+                                        "ValuePos": {},
+                                        "ValueEnd": {},
+                                        "Value": "Hoge"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          "Position": {},
+                          "Semicolon": {},
+                          "Negated": false,
+                          "Background": false,
+                          "Coprocess": false,
+                          "Redirs": null
+                        }
+                      ],
+                      "Last": null
+                    },
+                    "Position": {},
+                    "Semicolon": {},
+                    "Negated": false,
+                    "Background": false,
+                    "Coprocess": false,
+                    "Redirs": null
                   }
-                ]
+                },
+                "Position": {},
+                "Semicolon": {},
+                "Negated": false,
+                "Background": false,
+                "Coprocess": false,
+                "Redirs": null
               }
-            ]
-          }
-        ]
+            ],
+            "Last": null
+          },
+          "Position": {},
+          "Semicolon": {},
+          "Negated": false,
+          "Background": false,
+          "Coprocess": false,
+          "Redirs": null
+        }
       },
       "Position": {},
       "Semicolon": {},

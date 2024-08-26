@@ -17,9 +17,9 @@ func PrintAsJSON(data any) {
 	fmt.Println(string(jsonData))
 }
 
-func Parse(r io.Reader, opts ...syntax.ParserOption) (*syntax.File, error) {
+func Parse(r io.Reader, name string, opts ...syntax.ParserOption) (*syntax.File, error) {
 	parser := syntax.NewParser(opts...)
-	parsed, err := parser.Parse(r, "")
+	parsed, err := parser.Parse(r, name)
 	if err != nil {
 		return nil, err
 	}
@@ -33,5 +33,5 @@ func ParseFile(path string, opts ...syntax.ParserOption) (*syntax.File, error) {
 		return nil, err
 	}
 
-	return Parse(f, opts...)
+	return Parse(f, path, opts...)
 }
