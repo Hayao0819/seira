@@ -14,9 +14,12 @@ func Bundle(input io.Reader, output io.Writer, opts ...Option) (any, error) {
 		opt(&o)
 	}
 
-	srcs := getImportedFilePathsFromReader(input)
-	for _, src := range *srcs {
-		srcFile, err := os.Open(src)
+	imports, err := getImportInfosFromReader(input)
+	if err != nil {
+		return nil, err
+	}
+	for _, ipt := range *imports {
+		srcFile, err := os.Open(ipt.FilePath)
 		if err != nil {
 			return nil, err
 		}
