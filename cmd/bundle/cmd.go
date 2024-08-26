@@ -2,6 +2,7 @@ package bundle
 
 import (
 	"os"
+	"path"
 
 	"github.com/Hayao0819/seira/bundler"
 	sbb "github.com/malscent/bash_bundler/pkg/bundler"
@@ -52,9 +53,8 @@ func withInternal(_ *cobra.Command, input string, output string, _ bool) error {
 		}
 	}
 
-	_, err = bundler.Bundle(ifile, ofile)
+	_, err = bundler.Bundle(ifile, ofile, bundler.Base(path.Dir(input)))
 	return err
-
 }
 
 func Cmd() *cobra.Command {

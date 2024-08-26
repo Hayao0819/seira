@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
-import tests/hoge.sh
+import hoge.sh
 echo "Hello World!"
