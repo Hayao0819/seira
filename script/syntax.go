@@ -1,10 +1,8 @@
-package bundler
+package script
 
 import (
 	"mvdan.cc/sh/v3/syntax"
 )
-
-
 
 func getCmdCallExprs(x syntax.Node, cmd string) []syntax.CallExpr {
 	rt := []syntax.CallExpr{}

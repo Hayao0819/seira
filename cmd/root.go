@@ -9,8 +9,10 @@ var cmdReg = cobrautils.Registory{}
 
 func rootCmd() *cobra.Command {
 	cmd := cobra.Command{
-		Use:   "seira",
-		Short: "A shell parser",
+		Use:           "seira",
+		Short:         "A shell parser",
+		SilenceUsage:  true,
+		SilenceErrors: true,
 	}
 
 	cmdReg.Bind(&cmd)

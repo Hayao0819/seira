@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
-import hoge.sh
+#shellcheck source=/dev/null
+source "hoge.sh"
 
 main() {
     echo "Hello World!"
