@@ -1,7 +1,6 @@
 package bundle
 
 import (
-	"os"
 	"path"
 
 	"github.com/Hayao0819/seira/bundler"
@@ -9,27 +8,16 @@ import (
 	"github.com/spf13/cobra"
 )
 
-func withInternal(_ *cobra.Command, input string, output string, _ bool) error {
-	var (
-		ifile *os.File
-		ofile *os.File
-		err   error
+func withInternal(_ *cobra.Command, input string, output string, minify bool) error {
+	baseDir := path.Dir(input)
+
+	err := bundler.Bundle(
+		bundler.InputFile(input),
+		bundler.OutputFile(output),
+		bundler.Base(baseDir),
+		bundler.Minify(minify),
 	)
 
-	ifile, err = os.Open(input)
-	if err != nil {
-		return err
-	}
-	defer ifile.Close()
-
-	if output != "" {
-		ofile, err = os.Create(output)
-		if err != nil {
-			return err
-		}
-	}
-
-	_, err = bundler.Bundle(ifile, input, ofile, bundler.Base(path.Dir(input)))
 	if err != nil {
 		return errors.Wrap(err, "failed to bundle")
 	}
