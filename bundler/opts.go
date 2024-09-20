@@ -2,6 +2,7 @@ package bundler
 
 import (
 	"io"
+	"log/slog"
 	"os"
 )
 
@@ -18,6 +19,7 @@ type options struct {
 type Option func(*options) error
 
 func Minify(enable bool) Option {
+	slog.Debug("minify", "enable", enable)
 	return func(o *options) error {
 		o.minify = enable
 		return nil
@@ -25,6 +27,7 @@ func Minify(enable bool) Option {
 }
 
 func Base(base string) Option {
+	slog.Debug("base", "dir", base)
 	return func(o *options) error {
 		o.base = base
 		return nil
@@ -32,6 +35,7 @@ func Base(base string) Option {
 }
 
 func InputFile(path string) Option {
+	slog.Debug("input file", "path", path)
 	return func(o *options) error {
 		f, err := os.Open(path)
 		if err != nil {
@@ -47,6 +51,7 @@ func InputFile(path string) Option {
 }
 
 func OutputFile(path string) Option {
+	slog.Debug("output file", "path", path)
 	return func(o *options) error {
 		f, err := os.Create(path)
 		if err != nil {
@@ -61,6 +66,7 @@ func OutputFile(path string) Option {
 }
 
 func WorkDir(path string) Option {
+	slog.Debug("work dir", "path", path)
 	return func(o *options) error {
 		o.work = path
 		return nil

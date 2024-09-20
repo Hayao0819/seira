@@ -1,7 +1,10 @@
 package cmd
 
 import (
+	"log/slog"
+
 	"github.com/Hayao0819/nahi/cobrautils"
+	"github.com/m-mizutani/clog"
 	"github.com/spf13/cobra"
 )
 
@@ -17,4 +20,10 @@ func rootCmd() *cobra.Command {
 
 	cmdReg.Bind(&cmd)
 	return &cmd
+}
+
+func init() {
+	handler := clog.New(clog.WithColor(true), clog.WithLevel(slog.LevelDebug))
+	logger := slog.New(handler)
+	slog.SetDefault(logger)
 }

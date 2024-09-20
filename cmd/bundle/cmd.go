@@ -1,15 +1,17 @@
 package bundle
 
 import (
+	"log/slog"
 	"path"
 
 	"github.com/Hayao0819/seira/bundler"
-	"github.com/pkg/errors"
+	"github.com/cockroachdb/errors"
 	"github.com/spf13/cobra"
 )
 
 func withInternal(_ *cobra.Command, input string, output string, minify bool) error {
 	baseDir := path.Dir(input)
+	slog.Info("options", "input", input, "output", output, "base", baseDir, "minify", minify)
 
 	err := bundler.Bundle(
 		bundler.InputFile(input),
@@ -36,7 +38,7 @@ func Cmd() *cobra.Command {
 		},
 	}
 
-	cmd.Flags().StringVarP(&output, "output", "o", "", "output file")
+	cmd.Flags().StringVarP(&output, "output", "o", "output.sh", "output file")
 	cmd.Flags().BoolVarP(&minify, "minify", "m", false, "minify output")
 
 	return &cmd
