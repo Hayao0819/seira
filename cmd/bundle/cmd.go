@@ -18,6 +18,7 @@ func withInternal(_ *cobra.Command, input string, output string, minify bool) er
 		bundler.OutputFile(output),
 		bundler.Base(baseDir),
 		bundler.Minify(minify),
+		bundler.WorkDir("work"),
 	)
 
 	if err != nil {

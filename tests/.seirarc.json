@@ -1,4 +1,6 @@
 {
-    "entrypoint": "test.sh",
-    "shebang": "/bin/bash"
+  "entrypoint": "test.sh",
+  "shebang": "/bin/bash",
+  "include": [],
+  "exclude": []
 }

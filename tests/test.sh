@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 #shellcheck source=/dev/null
-source "hoge.sh"
+source "lib/hoge.sh"
 
 main() {
     echo "Hello World!"

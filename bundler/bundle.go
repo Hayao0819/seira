@@ -3,9 +3,7 @@ package bundler
 import (
 	"log/slog"
 	"os"
-	"path"
 
-	cp "github.com/otiai10/copy"
 	"github.com/samber/lo"
 )
 
@@ -14,7 +12,7 @@ func Bundle(opts ...Option) error {
 	if err != nil {
 		return err
 	}
-	
+
 	defer lo.ForEach(o.deferFn, func(fn func(), i int) {
 		fn()
 	})
@@ -32,17 +30,9 @@ func Bundle(opts ...Option) error {
 	}
 
 	// Copy the target files to the work directory
-	lo.ForEach(*targetFiles, func(file string, i int) {
-		dir := path.Base(file)
-		if err := os.MkdirAll(path.Join(o.work, dir), 0755); err != nil {
-			slog.Error("failed to create directory", "dir", dir, "error", err)
-			return
-		}
-
-		if err := cp.Copy(file, path.Join(o.work, dir)); err != nil {
-			slog.Error("failed to copy file", "file", file, "error", err)
-		}
-	})
+	if err := copySourceFilesToDir(*targetFiles, o.base, o.work); err != nil {
+		return err
+	}
 
 	// Create tarball
 	// TODO: Implement this

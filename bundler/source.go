@@ -82,5 +82,7 @@ func getTargetFileList(input io.Reader, iname string) (*[]string, error) {
 		return i.FullPath
 	})
 
+	rt = append(rt, info.FullPath)
+
 	return &rt, nil
 }
