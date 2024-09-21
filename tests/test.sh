@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 #shellcheck source=/dev/null
-source "lib/hoge.sh"
+source "${SEIRA_ROOTDIR="."}/lib/hoge.sh"
 
 main() {
     echo "Hello World!"
